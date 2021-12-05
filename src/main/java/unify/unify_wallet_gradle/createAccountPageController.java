@@ -64,7 +64,7 @@ public class createAccountPageController {
             error.setContentText("The Username entered already exists.\nPlease enter a different Username.");
             error.showAndWait();
             usernameField.clear();
-        } else if (password.equals(confirmPass) || spendPass.equals(confSpendPass)) {
+        } else if (!password.equals(confirmPass) || !spendPass.equals(confSpendPass)) {
             Alert error = new Alert(Alert.AlertType.ERROR);
             error.setHeaderText("Incorrect Inputs");
             error.setContentText("Either the Password or Spending Password did not match the confirmation.\nPlease re-enter the information correctly.");
