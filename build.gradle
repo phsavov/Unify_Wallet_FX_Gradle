@@ -1,0 +1,69 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.beryx.jlink' version '2.24.1'
+}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'unify.unify_wallet_gradle.WalletApplication'
+        )
+    }
+}
+group 'Unify'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.8.1'
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'unify.unify_wallet_gradle'
+    mainClass = 'unify.unify_wallet_gradle.WalletApplication'
+}
+
+javafx {
+    version = '17.0.1'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+
+    implementation 'org.json:json:20210307'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:9.4.0.jre16'
+    implementation 'org.openjfx:javafx-controls:17.0.0.1'
+    implementation 'org.openjfx:javafx-fxml:17.0.0.1'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jlink {
+    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'app'
+    }
+}
+
+jlinkZip {
+    group = 'distribution'
+}

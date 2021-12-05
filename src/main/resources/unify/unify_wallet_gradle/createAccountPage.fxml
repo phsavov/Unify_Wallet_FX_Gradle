@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="unify.unify_wallet_gradle.createAccountPageController">
+   <children>
+      <Label layoutX="45.0" layoutY="72.0" text="Username">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="119.0" text="Password">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="168.0" text="Confirm Password">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="215.0" text="Spending Password">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="263.0" text="Confirm Spending Password">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="confirmPasswordField" layoutX="352.0" layoutY="169.0" promptText="Confirm Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="spendingPasswordField" layoutX="352.0" layoutY="216.0" promptText="Spending  Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="confirmSpendingPasswordField" layoutX="352.0" layoutY="264.0" promptText="Confirm Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="passwordField" layoutX="352.0" layoutY="120.0" promptText="Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="usernameField" layoutX="352.0" layoutY="73.0" promptText="Username">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="createButton" layoutX="250.0" layoutY="316.0" mnemonicParsing="false" onAction="#createButtonPressed" text="Create">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

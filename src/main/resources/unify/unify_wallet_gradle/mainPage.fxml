@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="unify.unify_wallet_gradle.MainPageController">
+    <tabs>
+        <Tab text="Home">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="refreshButton" layoutX="245.0" layoutY="249.0" mnemonicParsing="false" onAction="#refreshButtonPushed" prefHeight="59.0" prefWidth="110.0" text="Refresh">
+                            <font>
+                                <Font size="23.0" />
+                            </font>
+                        </Button>
+                        <Label layoutX="87.0" layoutY="109.0" text="Current Cardano Price">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="87.0" layoutY="185.0" text="Account Total">
+                            <font>
+                                <Font size="20.0" />
+                            </font></Label>
+                        <Label fx:id="displayTotal" layoutX="322.0" layoutY="185.0" onInputMethodTextChanged="#refreshButtonPushed" text="Press Refresh Button">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="cardanoPrice" layoutX="323.0" layoutY="109.0" onInputMethodTextChanged="#refreshButtonPushed" text="Press Refresh Button">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Send">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="ADATextField" layoutX="299.0" layoutY="126.0" prefHeight="25.0" prefWidth="162.0" promptText="0.00 ADA" />
+                        <Button fx:id="sendButton" layoutX="257.0" layoutY="288.0" mnemonicParsing="false" onAction="#sendButtonPushed" text="Send">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <TextField fx:id="receivingAddress" layoutX="299.0" layoutY="65.0" prefHeight="25.0" prefWidth="161.0" promptText="Address" />
+                  <Label layoutX="136.0" layoutY="125.0" text="Amount of ADA">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="112.0" layoutY="196.0" text="Spending Password">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="131.0" layoutY="64.0" text="Receiving Address">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="spendingPasswordField" layoutX="300.0" layoutY="197.0" prefHeight="25.0" prefWidth="163.0" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Receive">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="generateAddressButton" layoutX="183.0" layoutY="219.0" mnemonicParsing="false" onAction="#generateAddressButtonPushed" prefHeight="89.0" prefWidth="233.0" text="Generate Address">
+                            <font>
+                                <Font size="23.0" />
+                            </font>
+                        </Button>
+                  <Label layoutX="79.0" layoutY="93.0" text="Press the Generate Address Button to Get Your Wallet Address">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="addressLabel" layoutX="235.0" layoutY="143.0" onInputMethodTextChanged="#generateAddressButtonPushed" prefHeight="20.0" prefWidth="129.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Add ADA">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="enterAmountHereTextField" layoutX="226.0" layoutY="161.0" promptText="Enter Amount Here" />
+                        <Button fx:id="ADDButton" layoutX="230.0" layoutY="244.0" mnemonicParsing="false" onAction="#ADDButtonPushed" prefHeight="81.0" prefWidth="140.0" text="ADD">
+                            <font>
+                                <Font size="26.0" />
+                            </font>
+                        </Button>
+                        <Label layoutX="91.0" layoutY="77.0" text="Add the Amount of ADA You Want to Add to Your Account">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Ledger">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="transactionRefreshButton" layoutX="241.0" layoutY="268.0" mnemonicParsing="false" onAction="#transactionRefreshButtonPushed" prefHeight="66.0" prefWidth="118.0" text="Refresh" />
+                  <TableView fx:id="transactionHistory" layoutX="146.0" layoutY="49.0" prefHeight="200.0" prefWidth="321.0">
+                    <columns>
+                      <TableColumn fx:id="fromAccountID" editable="false" onEditStart="#transactionRefreshButtonPushed" prefWidth="102.33332824707031" sortable="false" text="From Account ID" />
+                      <TableColumn fx:id="amount" editable="false" onEditStart="#refreshButtonPushed" prefWidth="120.3333740234375" text="Amount" />
+                        <TableColumn fx:id="toAccountID" editable="false" onEditStart="#refreshButtonPushed" prefWidth="98.3333740234375" sortable="false" text="To Account ID" />
+                    </columns>
+                  </TableView>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
